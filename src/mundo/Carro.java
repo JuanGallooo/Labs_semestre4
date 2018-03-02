@@ -7,6 +7,7 @@ public class Carro {
 		this.placa= placa;
 		siguiente= null;
 	}
+	//Hola
 	public String getPlaca() {
 		return placa;
 	}
