@@ -7,8 +7,6 @@ public class Carro {
 		this.placa= placa;
 		siguiente= null;
 	}
-	//Hola
-	//asdfghjk
 	public String getPlaca() {
 		return placa;
 	}
@@ -21,5 +19,5 @@ public class Carro {
 	public void setSiguiente(Carro siguiente) {
 		this.siguiente = siguiente;
 	}
-	// asdkasdasd
+
 }
