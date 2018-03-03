@@ -8,6 +8,7 @@ public class Carro {
 		siguiente= null;
 	}
 	//Hola
+	//Hola xd lol
 	public String getPlaca() {
 		return placa;
 	}
