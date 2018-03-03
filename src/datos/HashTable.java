@@ -10,8 +10,18 @@ public class HashTable implements interfazHash<Carro>{
 	public HashTable(int Tamano){
 	}
 	@Override
-	public String keySet(Carro object) {
-		return null;
+	
+	public int keySet(Carro object) {
+		char keys[] =  object.getPlaca().toCharArray();
+		int key = 0;
+		for(int i  = 0; i < keys.length; i++){
+			key += keys[i]* 2^i;
+		}
+		
+		key =  1485 - key;
+		
+		
+		return key;
 	}
 
 	@Override
