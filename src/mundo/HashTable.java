@@ -17,7 +17,7 @@ public class HashTable implements interfazHash<Carro>{
 	}
 
 	@Override
-	public Carro[] values() {
+	public String[] values() {
 		return null;
 	}
 
