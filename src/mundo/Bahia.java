@@ -12,6 +12,23 @@ public class Bahia {
 	public Bahia(int capacidad, String[] datos, int indice) {
 		this.capacidad=capacidad;
 		indiceLinea= indice;
+		pilaCarros= new Pila<Carro>(null, capacidad);
+		apilarCarros(datos);
+	}
+	public void apilarCarros(String[] datos){
+		boolean encontro=false;
+		for (int i = 0; i < capacidad && !encontro; i++) {
+			String placa=datos[indiceLinea];
+			if( buscarCarro(placa) == false) {
+			Carro agregar= new Carro(placa);
+			pilaCarros.push(agregar);
+			indiceLinea++;
+		    }
+			else encontro=true;
+		}
+	}
+	public boolean buscarCarro(String placa) {
+		return false;
 	}
 	public int getIndiceLinea() {
 		return indiceLinea;
