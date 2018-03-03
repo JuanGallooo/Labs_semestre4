@@ -1,4 +1,7 @@
-package mundo;
+package datos;
+
+import interfaces.InterfazCola;
+import mundo.Carro;
 
 public class Cola implements InterfazCola<Carro> {
 
@@ -6,19 +9,14 @@ public class Cola implements InterfazCola<Carro> {
 	private int back;
 	private int tamanhoMax;
 	
-	
-	
 	public Cola(int tamanho){
 		tamanhoMax = tamanho;
 		arreglo = new Carro[tamanho];
 		back  = 0;
-	}
-	
-	
+	}	
 	
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		if(arreglo.length == 0){
 			return true;
 		}
@@ -63,7 +61,6 @@ public class Cola implements InterfazCola<Carro> {
 
 	@Override
 	public Carro back() {
-		// TODO Auto-generated method stub
 		return arreglo[back];
 	}
 

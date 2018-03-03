@@ -1,4 +1,4 @@
-package mundo;
+package interfaces;
 
 public interface InterfazCola<T> {
 

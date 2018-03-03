@@ -19,5 +19,8 @@ public class Carro {
 	public void setSiguiente(Carro siguiente) {
 		this.siguiente = siguiente;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 464241867f350947bb4cc7e7a94a4d3ad38202e7
 }
