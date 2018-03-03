@@ -1,4 +1,6 @@
-package mundo;
+package datos;
+
+import interfaces.InterfazDato;
 
 public class Pila<A> implements InterfazDato<A>{
 	private A primerDato;

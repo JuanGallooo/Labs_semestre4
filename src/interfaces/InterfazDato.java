@@ -1,4 +1,4 @@
-package mundo;
+package interfaces;
 
 public interface InterfazDato<T> {
 	public boolean isEmpty();

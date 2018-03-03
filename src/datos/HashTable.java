@@ -1,4 +1,7 @@
-package mundo;
+package datos;
+
+import interfaces.interfazHash;
+import mundo.Carro;
 
 public class HashTable implements interfazHash<Carro>{
 	
