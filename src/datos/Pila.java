@@ -6,12 +6,15 @@ public class Pila<A> implements InterfazDato<A>{
 	private A primerDato;
 	private Object[] contenido;
 	private int indice;
+	private int tamanoPila;
 	public Pila(A primerDato, int tamano) {
 		this.primerDato = primerDato;
 		contenido= new Object[tamano];
+		tamanoPila= tamano;
 		contenido[0]= primerDato;
 		indice= 1;
     }
+	
 	@Override
 	public boolean isEmpty() {
 		Boolean retorno= false;
@@ -74,5 +77,12 @@ public class Pila<A> implements InterfazDato<A>{
 	}
 	public void setIndice(int indice) {
 		this.indice = indice;
+	}
+	public int getTamanoPila() {
+		return tamanoPila;
+	}
+
+	public void setTamanoPila(int tamanoPila) {
+		this.tamanoPila = tamanoPila;
 	}
 }

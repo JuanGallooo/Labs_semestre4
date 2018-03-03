@@ -13,19 +13,27 @@ public class Bahia {
 		this.capacidad=capacidad;
 		indiceLinea= indice;
 		pilaCarros= new Pila<Carro>(null, capacidad);
-		apilarCarros(datos);
 	}
-	public void apilarCarros(String[] datos){
-		boolean encontro=false;
-		for (int i = 0; i < capacidad && !encontro; i++) {
+	public int apilarCarros(String[] datos, int numCarros){
+		int numAgregado=0;
+		for (int i = 0; i < capacidad && numCarros>0; i++) {
 			String placa=datos[indiceLinea];
-			if( buscarCarro(placa) == false) {
 			Carro agregar= new Carro(placa);
 			pilaCarros.push(agregar);
 			indiceLinea++;
-		    }
-			else encontro=true;
+			numCarros--;
+			numAgregado++;
 		}
+		return numAgregado;
+	}
+	public String reporteCarrosApilados() {
+		String reporte="";
+		Pila<Carro> prueba= pilaCarros;
+		for (int i = 0; i < pilaCarros.getTamanoPila(); i++) {
+			Carro dado= prueba.pop();
+			reporte+= dado.getPlaca() + "\n";
+		}
+		return reporte;
 	}
 	public boolean buscarCarro(String placa) {
 		return false;
