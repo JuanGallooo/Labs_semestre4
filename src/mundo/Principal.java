@@ -8,8 +8,7 @@ public class Principal {
 	public void datosLector(String texto) {
 		String[] lineas= texto.split("/n");
 	    int numCasos= Integer.parseInt(lineas[0]);
-		int indice=3;
-	    
+		int indice=2;
 	    String[] datos= lineas[1].split(" ");
 	    for (int i = 0; i < numCasos; i++) {
 		 actual= new Parqueadero(indice);

@@ -12,10 +12,10 @@ public class Parqueadero {
 	public void crearBahias(String[] datos, String[] info) {
 		int bahias= Integer.parseInt(datos[0]);
 		int capacidad= Integer.parseInt(datos[1]);
-		int numCarros=Integer.parseInt(datos[2]);
 		pilaBahia= new Pila<Bahia>(null,bahias);
 		for (int j = 0; j < bahias; j++) {
 			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea);
+			indiceLinea= nuevaBahia.getIndiceLinea();
 			pilaBahia.push(nuevaBahia);
 		}
 	}
