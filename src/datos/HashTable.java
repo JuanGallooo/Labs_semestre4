@@ -5,23 +5,30 @@ import mundo.Carro;
 
 public class HashTable implements interfazHash<Carro>{
 	
-	public String[] keys;
+	public int[] tableBahias;
+	public String[] tableCarros;
 	
-	public HashTable(int Tamano){
+	public HashTable(int tamanhoUniverso){
+		 
 	}
-	@Override
 	
+	
+	@Override
 	public int keySet(Carro object) {
-		char keys[] =  object.getPlaca().toCharArray();
-		int key = 0;
-		for(int i  = 0; i < keys.length; i++){
-			key += keys[i]* 2^i;
-		}
+	
+    char[] placa = object.getPlaca().toCharArray();
+    int hash = 0;
+    
+    for(int i  = 0; i < placa.length; i++){
+    	if(placa[i]>= 48 && placa[i]<=57){
+    		hash+= Math.abs(placa[i]-57);
+    	}
+    	else{
+    		hash+= Math.abs(placa[i]-90);
+    	}
+    }
 		
-		key =  1485 - key;
-		
-		
-		return key;
+		return hash;
 	}
 
 	@Override
