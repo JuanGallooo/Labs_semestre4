@@ -22,11 +22,31 @@ public class Parqueadero {
 			indiceLinea= nuevaBahia.getIndiceLinea();
 			pilaBahia.push(nuevaBahia);
 		}
+		requerimiento(info);
+	}
+	public void requerimiento(String[] info) {
+		String placaEliminar=info[indiceLinea];
+		indiceLinea++;
+	}
+	public int buscarCarroBahia(int bahiaBase,Pila<Bahia> pila,String placaCarro) {
+		int bahiaEncontrada=-1;
+		if(pila.isEmpty()!= true) {
+			Pila<Bahia> prueba= pila;
+			Bahia buscar=prueba.pop();
+			if(buscar.buscarCarro(placaCarro)== true) {
+				
+				
+				return bahiaBase;
+			}
+			else {
+				bahiaEncontrada= buscarCarroBahia(bahiaBase++,prueba,placaCarro);
+			}
+		}
+		return bahiaEncontrada;
 	}
 	public String sacarCarros(Pila<Bahia> pilaDada) {
 		String reporte="";
-		for (int i = 0; i < array.length; i++) {
-			
+		if(pilaDada.isEmpty()== false) {
 		}
 		return reporte;
 	}
