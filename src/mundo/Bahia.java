@@ -8,6 +8,7 @@ public class Bahia {
 	private Cola colaCarros; 
 	private int indiceLinea;
 	private int capacidad;
+	private int movimientos;
 
 	public Bahia(int capacidad, String[] datos, int indice) {
 		this.capacidad=capacidad;
@@ -64,5 +65,14 @@ public class Bahia {
 	}
 	public void setColaCarros(Cola colaCarros) {
 		this.colaCarros = colaCarros;
+	}
+	public void sacarCarro(String placaCarro) {
+		
+	}
+	public int getMovimientos() {
+		return movimientos;
+	}
+	public void setMovimientos(int movimientos) {
+		this.movimientos = movimientos;
 	}
 }

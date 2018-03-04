@@ -6,4 +6,5 @@ public interface InterfazDato<T> {
 	public T back();
 	public T push(T dato);
 	public T pop();
+	public T replace(T dato, T datoDos);
 }

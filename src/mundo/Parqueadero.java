@@ -34,7 +34,7 @@ public class Parqueadero {
 			Pila<Bahia> prueba= pila;
 			Bahia buscar=prueba.pop();
 			if(buscar.buscarCarro(placaCarro)== true) {
-				
+				buscar.sacarCarro(placaCarro);
 				
 				return bahiaBase;
 			}
@@ -50,5 +50,21 @@ public class Parqueadero {
 		}
 		return reporte;
 	}
-	
+	public void replaceBahia(Pila<Bahia> pila,int indiceARemplazar, Bahia nueva) {
+		if(pila.isEmpty()!= true) {
+			Pila<Bahia> prueba= pila;
+			Pila<Bahia> aux= new Pila<Bahia>(null, prueba.getTamanoPila());
+			boolean encontro=false;
+			for (int i = 0; i < prueba.getTamanoPila() && encontro==false; i++) {
+				if(i==indiceARemplazar) {
+					prueba.pop();
+					prueba.push(nueva);
+					//llenar con aux
+				}
+				else {
+					
+				}
+			}
+		}
+	}
 }
