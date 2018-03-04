@@ -85,4 +85,9 @@ public class Pila<A> implements InterfazDato<A>{
 	public void setTamanoPila(int tamanoPila) {
 		this.tamanoPila = tamanoPila;
 	}
+
+	@Override
+	public A replace(A dato, A datoDos) {
+		return null;
+	}
 }
