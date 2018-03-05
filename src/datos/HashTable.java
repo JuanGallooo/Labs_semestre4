@@ -6,6 +6,7 @@ import mundo.Carro;
 public class HashTable implements interfazHash<Carro>{
 
 	// Este arreglo debe ser de carros?
+	// -------Cuando lo hice pense que era el arreglo de keys pero no se
 	public String[] tableCarros;
 	
 	public HashTable(int tamanhoUniverso){
@@ -34,6 +35,7 @@ public class HashTable implements interfazHash<Carro>{
 	}
 
 	// Debo recibir la placa no? en vez del carro?.
+	// ----------recibe la key del carro en String 
 	@Override
 	public Carro Get(Carro placa) {
 		int key = 0;
@@ -44,7 +46,7 @@ public class HashTable implements interfazHash<Carro>{
 			key = hashFunctionCarsLess100(placa);
 		}
 		// Retorno el string del carro o retorno el carro?
-		
+		//----------------- Retornas el carro apartir del String
 		return null;
 	}
 
@@ -60,6 +62,7 @@ public class HashTable implements interfazHash<Carro>{
 
 
 	// No recibo más bien una placa para hacer una referencia del carro?
+	// NO SE
 	//---------------------------------------------------------------------------------------------------------------------
 	@Override
 	public int hashFunctionCarsBigger100(Carro object) {	
