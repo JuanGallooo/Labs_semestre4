@@ -17,11 +17,12 @@ public class Parqueadero {
 		for (int j = 0; j < bahias; j++) {
 			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea);
 			if( numCarros>0) {
-			numCarros-=nuevaBahia.apilarCarros(datos, numCarros);
+			numCarros-=nuevaBahia.apilarCarros(info, numCarros);
 			}
 			indiceLinea= nuevaBahia.getIndiceLinea();
 			pilaBahia.push(nuevaBahia);
 		}
+		numCarros= Integer.parseInt(datos[2]);
 		for (int i = 0; i < numCarros; i++) {
 			requerimiento(info);
 			indiceLinea++;
@@ -49,7 +50,9 @@ public class Parqueadero {
 	}
 	public String sacarCarros(Pila<Bahia> pilaDada) {
 		String reporte="";
-		if(pilaDada.isEmpty()== false) {
+		for (int i = 0; i < pilaDada.getTamanoPila() && pilaDada.isEmpty()!= true; i++) {
+			Bahia aux= pilaDada.pop();
+			reporte+= aux.getMovimientos()+ " ";
 		}
 		return reporte;
 	}

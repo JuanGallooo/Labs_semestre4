@@ -15,6 +15,7 @@ public class Bahia {
 		indiceLinea= indice;
 		pilaCarros= new Pila<Carro>(null, capacidad);
 		colaCarros= new Cola(capacidad);
+		movimientos=0;
 	}
 	public int apilarCarros(String[] datos, int numCarros){
 		int numAgregado=0;
@@ -90,7 +91,7 @@ public class Bahia {
 				   colaCarros.dequeue();
 			   }
 			}
-			this.setMovimientos(movimientos+contador);
+			movimientos=contador;
 		}
 	}
 	public int getMovimientos() {
