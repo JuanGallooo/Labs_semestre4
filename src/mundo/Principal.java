@@ -1,12 +1,12 @@
 package mundo;
 public class Principal {
 	private Parqueadero actual;
-	
+	private String mensaje;
 	public Principal() {
 		actual= null;
 	}
 	public void datosLector(String texto) throws Exception {
-		String[] lineas= texto.split("/n");
+		String[] lineas= texto.split("\n");
 	    int numCasos= Integer.parseInt(lineas[0]);
 	    String[] datos= lineas[1].split(" ");
 	   
@@ -18,15 +18,18 @@ public class Principal {
 		 indice= actual.getIndiceLinea();
 		 datos= lineas[indice].split(" ");
 	    }
-	  
-	}
-	public void crearNuevoMundo() {
-		
+	    mensaje ="Salida"+ actual.sacarCarros(actual.getPilaBahia());
 	}
 	public Parqueadero getActual() {
 		return actual;
 	}
 	public void setActual(Parqueadero actual) {
 		this.actual = actual;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 }
