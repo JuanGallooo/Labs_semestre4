@@ -5,7 +5,7 @@ public class Principal {
 	public Principal() {
 		actual= null;
 	}
-	public void datosLector(String texto) {
+	public void datosLector(String texto) throws Exception {
 		String[] lineas= texto.split("/n");
 	    int numCasos= Integer.parseInt(lineas[0]);
 	    String[] datos= lineas[1].split(" ");
@@ -15,7 +15,8 @@ public class Principal {
 	    for (int i = 0; i < numCasos; i++) {
 		 actual= new Parqueadero(indice);
 		 actual.crearBahias(datos, lineas);
-		 //actualizar para nuevo parqueadero
+		 indice= actual.getIndiceLinea();
+		 datos= lineas[indice].split(" ");
 	    }
 	  
 	}

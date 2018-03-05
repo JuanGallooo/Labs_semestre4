@@ -9,7 +9,7 @@ public class Parqueadero {
 	public Parqueadero(int indice) {
 		indiceLinea= indice;
 	}
-	public void crearBahias(String[] datos, String[] info) {
+	public void crearBahias(String[] datos, String[] info) throws Exception {
 		int bahias= Integer.parseInt(datos[0]);
 		int capacidad= Integer.parseInt(datos[1]);
 		int numCarros= Integer.parseInt(datos[2]);
@@ -27,11 +27,11 @@ public class Parqueadero {
 			indiceLinea++;
 		}
 	}
-	public void requerimiento(String[] info) {
+	public void requerimiento(String[] info) throws Exception {
 		String placaEliminar=info[indiceLinea];
 		buscarCarroBahia(0,pilaBahia,placaEliminar);
 	}
-	public int buscarCarroBahia(int bahiaBase,Pila<Bahia> pila,String placaCarro) {
+	public int buscarCarroBahia(int bahiaBase,Pila<Bahia> pila,String placaCarro) throws Exception {
 		int bahiaEncontrada=-1;
 		if(pila.isEmpty()!= true) {
 			Pila<Bahia> prueba= pila;
@@ -58,7 +58,7 @@ public class Parqueadero {
 			Pila<Bahia> aux= new Pila<Bahia>(null, pilaBahia.getTamanoPila());
 			boolean encontro=false;
 			for (int i = 0; i < pilaBahia.getTamanoPila() && encontro!=true; i++) {
-				if(i==indiceARemplazar && pilaBahia.isEmpty()!=false) {
+				if(i==indiceARemplazar && pilaBahia.isEmpty()!=true) {
 					pilaBahia.pop();
 					pilaBahia.push(nueva);
 					encontro=true;
@@ -71,5 +71,17 @@ public class Parqueadero {
 				pilaBahia.push(aux.pop());
 			}
 		}
+	}
+	public Pila<Bahia> getPilaBahia() {
+		return pilaBahia;
+	}
+	public void setPilaBahia(Pila<Bahia> pilaBahia) {
+		this.pilaBahia = pilaBahia;
+	}
+	public int getIndiceLinea() {
+		return indiceLinea;
+	}
+	public void setIndiceLinea(int indiceLinea) {
+		this.indiceLinea = indiceLinea;
 	}
 }

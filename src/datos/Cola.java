@@ -63,5 +63,21 @@ public class Cola implements InterfazCola<Carro> {
 	public Carro back() {
 		return arreglo[back];
 	}
+	public int getBack() {
+		return back;
+	}
+
+	public void setBack(int back) {
+		this.back = back;
+	}
+
+	public int getTamanhoMax() {
+		return tamanhoMax;
+	}
+
+	public void setTamanhoMax(int tamanhoMax) {
+		this.tamanhoMax = tamanhoMax;
+	}
+
 
 }

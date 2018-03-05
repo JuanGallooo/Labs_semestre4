@@ -14,6 +14,7 @@ public class Bahia {
 		this.capacidad=capacidad;
 		indiceLinea= indice;
 		pilaCarros= new Pila<Carro>(null, capacidad);
+		colaCarros= new Cola(capacidad);
 	}
 	public int apilarCarros(String[] datos, int numCarros){
 		int numAgregado=0;
@@ -66,7 +67,31 @@ public class Bahia {
 	public void setColaCarros(Cola colaCarros) {
 		this.colaCarros = colaCarros;
 	}
-	public void sacarCarro(String placaCarro) {
+	public void sacarCarro(String placaCarro) throws Exception {
+		if(pilaCarros.isEmpty()!= false) {
+			boolean encontro=false;
+			int contador=0;
+			for (int i = 0; i < pilaCarros.getTamanoPila() && encontro!=true; i++) {
+				if(pilaCarros.isEmpty()!=true) {
+					Carro aux= pilaCarros.pop();
+					if( aux.getPlaca().equals(placaCarro)) {
+						encontro =true;
+						contador++;
+					}
+					else {
+						colaCarros.enqueue(aux);
+						contador++;
+					}
+				}
+			}
+			for (int i = 0; i < colaCarros.getTamanhoMax(); i++) {
+			   if( colaCarros.isEmpty()!= true) {
+				   pilaCarros.push(colaCarros.front());
+				   colaCarros.dequeue();
+			   }
+			}
+			this.setMovimientos(movimientos+contador);
+		}
 	}
 	public int getMovimientos() {
 		return movimientos;

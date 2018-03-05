@@ -63,14 +63,15 @@ public class Pila<A> implements InterfazDato<A>{
 		}
 		return retorno;
 	}
+	@Override
+	public A replace(A dato, A datoDos) {
+		return null;
+	}
 	public A getPrimerDato() {
 		return primerDato;
 	}
 	public void setPrimerDato(A primerDato) {
 		this.primerDato = primerDato;
-	}
-	public void setContenido(A[] cotenido) {
-		this.contenido = cotenido;
 	}
 	public int getIndice() {
 		return indice;
@@ -86,8 +87,4 @@ public class Pila<A> implements InterfazDato<A>{
 		this.tamanoPila = tamanoPila;
 	}
 
-	@Override
-	public A replace(A dato, A datoDos) {
-		return null;
-	}
 }
