@@ -9,14 +9,15 @@ public class Principal {
 		String[] lineas= texto.split("\n");
 	    int numCasos= Integer.parseInt(lineas[0]);
 	    String[] datos= lineas[1].split(" ");
-	   
 	    int indice=2;
-	    
 	    for (int i = 0; i < numCasos; i++) {
 		 actual= new Parqueadero(indice);
 		 actual.crearBahias(datos, lineas);
 		 indice= actual.getIndiceLinea();
+		 if(i+1 < numCasos) {
 		 datos= lineas[indice].split(" ");
+		 indice++;
+		 }
 	    }
 	    mensaje ="Salida"+ actual.sacarCarros(actual.getPilaBahia());
 	}

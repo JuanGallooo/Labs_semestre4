@@ -24,7 +24,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		escritor.write(principal.getMensaje());
 		escritor.close();
 		lector.close();

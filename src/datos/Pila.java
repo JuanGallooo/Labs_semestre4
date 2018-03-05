@@ -31,10 +31,10 @@ public class Pila<A> implements InterfazDato<A>{
 	}
 	@Override
 	public A push(A dato) {
-		if(indice<contenido.length) {
+		if(indice<=contenido.length) {
 			if( primerDato== null) {
 				primerDato= dato;
-				indice= 0;
+				indice=0;
 				contenido[indice]= dato;
 				indice++;
 			}

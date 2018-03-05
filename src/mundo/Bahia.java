@@ -100,4 +100,10 @@ public class Bahia {
 	public void setMovimientos(int movimientos) {
 		this.movimientos = movimientos;
 	}
+	@Override
+	public String toString() {
+		return "Bahia [pilaCarros=" + pilaCarros + ", colaCarros=" + colaCarros + ", indiceLinea=" + indiceLinea
+				+ ", capacidad=" + capacidad + ", movimientos=" + movimientos + "]";
+	}
+	
 }
