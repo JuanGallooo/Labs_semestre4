@@ -8,11 +8,14 @@ public class Principal {
 	public void datosLector(String texto) {
 		String[] lineas= texto.split("/n");
 	    int numCasos= Integer.parseInt(lineas[0]);
-		int indice=2;
 	    String[] datos= lineas[1].split(" ");
+	   
+	    int indice=2;
+	    
 	    for (int i = 0; i < numCasos; i++) {
 		 actual= new Parqueadero(indice);
 		 actual.crearBahias(datos, lineas);
+		 //actualizar para nuevo parqueadero
 	    }
 	  
 	}

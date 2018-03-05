@@ -67,7 +67,6 @@ public class Bahia {
 		this.colaCarros = colaCarros;
 	}
 	public void sacarCarro(String placaCarro) {
-		
 	}
 	public int getMovimientos() {
 		return movimientos;

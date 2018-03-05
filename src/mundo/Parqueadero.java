@@ -22,11 +22,14 @@ public class Parqueadero {
 			indiceLinea= nuevaBahia.getIndiceLinea();
 			pilaBahia.push(nuevaBahia);
 		}
-		requerimiento(info);
+		for (int i = 0; i < numCarros; i++) {
+			requerimiento(info);
+			indiceLinea++;
+		}
 	}
 	public void requerimiento(String[] info) {
 		String placaEliminar=info[indiceLinea];
-		indiceLinea++;
+		buscarCarroBahia(0,pilaBahia,placaEliminar);
 	}
 	public int buscarCarroBahia(int bahiaBase,Pila<Bahia> pila,String placaCarro) {
 		int bahiaEncontrada=-1;
@@ -35,7 +38,7 @@ public class Parqueadero {
 			Bahia buscar=prueba.pop();
 			if(buscar.buscarCarro(placaCarro)== true) {
 				buscar.sacarCarro(placaCarro);
-				
+				replaceBahia(bahiaBase,buscar);
 				return bahiaBase;
 			}
 			else {
@@ -50,20 +53,22 @@ public class Parqueadero {
 		}
 		return reporte;
 	}
-	public void replaceBahia(Pila<Bahia> pila,int indiceARemplazar, Bahia nueva) {
-		if(pila.isEmpty()!= true) {
-			Pila<Bahia> prueba= pila;
-			Pila<Bahia> aux= new Pila<Bahia>(null, prueba.getTamanoPila());
+	public void replaceBahia(int indiceARemplazar, Bahia nueva) {
+		if(pilaBahia.isEmpty()!= false) {
+			Pila<Bahia> aux= new Pila<Bahia>(null, pilaBahia.getTamanoPila());
 			boolean encontro=false;
-			for (int i = 0; i < prueba.getTamanoPila() && encontro==false; i++) {
-				if(i==indiceARemplazar) {
-					prueba.pop();
-					prueba.push(nueva);
-					//llenar con aux
+			for (int i = 0; i < pilaBahia.getTamanoPila() && encontro!=true; i++) {
+				if(i==indiceARemplazar && pilaBahia.isEmpty()!=false) {
+					pilaBahia.pop();
+					pilaBahia.push(nueva);
+					encontro=true;
 				}
 				else {
-					
+					aux.push(pilaBahia.pop());
 				}
+			}
+			for (int j = 0; j < aux.getTamanoPila() && aux.isEmpty()!=false; j++) {
+				pilaBahia.push(aux.pop());
 			}
 		}
 	}
