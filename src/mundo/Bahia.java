@@ -39,7 +39,16 @@ public class Bahia {
 		return reporte;
 	}
 	public boolean buscarCarro(String placa) {
-		return false;
+		boolean reporte=false;
+		Pila<Carro> prueba= pilaCarros;
+		for (int i = 0; i < pilaCarros.getTamanoPila() && reporte!= true; i++) {
+			if( prueba.isEmpty() != true) {
+				Carro dado= prueba.pop();
+				if(dado != null && dado.getPlaca().equals(placa) == true ) reporte= true;
+			}
+		}
+		System.out.println(reporte);
+		return reporte;
 	}
 	public int getIndiceLinea() {
 		return indiceLinea;
@@ -69,7 +78,7 @@ public class Bahia {
 		this.colaCarros = colaCarros;
 	}
 	public void sacarCarro(String placaCarro) throws Exception {
-		if(pilaCarros.isEmpty()!= false) {
+		if(pilaCarros.isEmpty()!= true) {
 			boolean encontro=false;
 			int contador=0;
 			for (int i = 0; i < pilaCarros.getTamanoPila() && encontro!=true; i++) {
@@ -85,13 +94,13 @@ public class Bahia {
 					}
 				}
 			}
-			for (int i = 0; i < colaCarros.getTamanhoMax(); i++) {
+			for (int j = 0; j < colaCarros.getTamanhoMax(); j++) {
 			   if( colaCarros.isEmpty()!= true) {
 				   pilaCarros.push(colaCarros.front());
 				   colaCarros.dequeue();
 			   }
 			}
-			movimientos=contador;
+			movimientos+=contador;
 		}
 	}
 	public int getMovimientos() {
@@ -99,11 +108,6 @@ public class Bahia {
 	}
 	public void setMovimientos(int movimientos) {
 		this.movimientos = movimientos;
-	}
-	@Override
-	public String toString() {
-		return "Bahia [pilaCarros=" + pilaCarros + ", colaCarros=" + colaCarros + ", indiceLinea=" + indiceLinea
-				+ ", capacidad=" + capacidad + ", movimientos=" + movimientos + "]";
 	}
 	
 }

@@ -17,9 +17,9 @@ public class Principal {
 		 if(i+1 < numCasos) {
 		 datos= lineas[indice].split(" ");
 		 indice++;
+		 mensaje +="Salida "+ actual.sacarCarros()+ "\n";
 		 }
 	    }
-	    mensaje ="Salida"+ actual.sacarCarros(actual.getPilaBahia());
 	}
 	public Parqueadero getActual() {
 		return actual;

@@ -1,6 +1,7 @@
 package datos;
 
 import interfaces.InterfazDato;
+import mundo.Bahia;
 
 public class Pila<A> implements InterfazDato<A>{
 	private A primerDato;
@@ -32,7 +33,7 @@ public class Pila<A> implements InterfazDato<A>{
 	@Override
 	public A push(A dato) {
 		if(indice<=contenido.length) {
-			if( primerDato== null) {
+			if( primerDato== null && dato!=null) {
 				primerDato= dato;
 				indice=0;
 				contenido[indice]= dato;
@@ -50,7 +51,8 @@ public class Pila<A> implements InterfazDato<A>{
 	@Override
 	public A pop() {
 		 A retorno=null;
-		if( primerDato!= null) {
+		
+		 if( primerDato!= null) {
 		 if( indice== 1) {
 			retorno= primerDato;
 			primerDato= null;

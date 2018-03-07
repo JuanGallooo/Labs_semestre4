@@ -55,7 +55,6 @@ public class Cola implements InterfazCola<Carro> {
 
 	@Override
 	public Carro front() {
-	
 		return  arreglo[0];
 	}
 
