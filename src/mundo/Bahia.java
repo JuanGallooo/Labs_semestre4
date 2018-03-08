@@ -6,24 +6,26 @@ import datos.Pila;
 public class Bahia {
 	private Pila<Carro> pilaCarros;
 	private Pila<Carro> pilaAuxiliar;
-	private Cola colaCarros; 
+	private Cola<Carro> colaCarros; 
 	private int indiceLinea;
 	private int capacidad;
 	private int movimientos;
+	private int numBahia;
 
-	public Bahia(int capacidad, String[] datos, int indice) {
+	public Bahia(int capacidad, String[] datos, int indice, int numBahia) {
 		this.capacidad=capacidad;
 		indiceLinea= indice;
 		pilaCarros= new Pila<Carro>(null, capacidad);
 		pilaAuxiliar= new Pila<Carro>(null,capacidad);
-		colaCarros= new Cola(capacidad);
+		colaCarros= new Cola<Carro>(capacidad);
 		movimientos=0;
+		this.numBahia=numBahia;
 	}
 	public int apilarCarros(String[] datos, int numCarros){
 		int numAgregado=0;
 		for (int i = 0; i < capacidad && numCarros>0; i++) {
 			String placa=datos[indiceLinea];
-			Carro agregar= new Carro(placa);
+			Carro agregar= new Carro(placa,numBahia );
 			pilaCarros.push(agregar);
 			indiceLinea++;
 			numCarros--;
@@ -31,15 +33,6 @@ public class Bahia {
 		}
 		return numAgregado;
 	}
-//	public String reporteCarrosApilados() {
-//		String reporte="";
-//		Pila<Carro> prueba= pilaCarros;
-//		for (int i = 0; i < pilaCarros.getTamanoPila(); i++) {
-//			Carro dado= prueba.pop();
-//			reporte+= dado.getPlaca() + "\n";
-//		}
-//		return reporte;
-//	}
 	public boolean buscarCarro(String placa) {
 		boolean reporte=false;
 		//Pila<Carro> prueba= pilaCarros;
@@ -77,10 +70,10 @@ public class Bahia {
 	public void setPilaCarros(Pila<Carro> pilaCarros) {
 		this.pilaCarros = pilaCarros;
 	}
-	public Cola getColaCarros() {
+	public Cola<Carro> getColaCarros() {
 		return colaCarros;
 	}
-	public void setColaCarros(Cola colaCarros) {
+	public void setColaCarros(Cola<Carro> colaCarros) {
 		this.colaCarros = colaCarros;
 	}
 	public void sacarCarro(String placaCarro) throws Exception {
@@ -122,5 +115,10 @@ public class Bahia {
 	public void setPilaAuxiliar(Pila<Carro> pilaAuxiliar) {
 		this.pilaAuxiliar = pilaAuxiliar;
 	}
-	
+	public int getNumBahia() {
+		return numBahia;
+	}
+	public void setNumBahia(int numBahia) {
+		this.numBahia = numBahia;
+	}
 }

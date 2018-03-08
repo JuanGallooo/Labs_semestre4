@@ -1,17 +1,16 @@
 package datos;
 
 import interfaces.InterfazCola;
-import mundo.Carro;
 
-public class Cola implements InterfazCola<Carro> {
+public class Cola<T> implements InterfazCola<T> {
 
-	private Carro[] arreglo;
+	private Object[] arreglo;
 	private int back;
 	private int tamanhoMax;
 	
 	public Cola(int tamanho){
 		tamanhoMax = tamanho;
-		arreglo = new Carro[tamanho];
+		arreglo = new Object[tamanho];
 		back  = 0;
 	}	
 	
@@ -25,7 +24,7 @@ public class Cola implements InterfazCola<Carro> {
 	}
 
 	@Override
-	public void enqueue(Carro c) throws Exception{
+	public void enqueue(T c) throws Exception{
 		if(isEmpty()){
 			arreglo[0] = c;
 		}
@@ -42,25 +41,28 @@ public class Cola implements InterfazCola<Carro> {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void dequeue() {
 		if(!isEmpty()){
 			for(int i = 0; i < arreglo.length-1; i++){
-			   Carro temp = arreglo[i+1];
+			   T temp = (T) arreglo[i+1];
 			   arreglo[i] = temp; 
 			   arreglo[i+1] = null;
 			}
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Carro front() {
-		return  arreglo[0];
+	public T front() {
+		return (T) arreglo[0];
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Carro back() {
-		return arreglo[back];
+	public T back() {
+		return (T)arreglo[back];
 	}
 	public int getBack() {
 		return back;

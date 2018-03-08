@@ -13,7 +13,7 @@ public class Parqueadero {
 		int numCarros= Integer.parseInt(datos[2]);
 		bahias= new Bahia[numBahias];
 		for (int j = 0; j < numBahias; j++) {
-			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea);
+			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea,j);
 			if( numCarros>0) {
 			numCarros-=nuevaBahia.apilarCarros(info, numCarros);
 			}
