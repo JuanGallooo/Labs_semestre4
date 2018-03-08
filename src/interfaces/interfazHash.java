@@ -1,7 +1,5 @@
 package interfaces;
 
-import mundo.Carro;
-
 public interface interfazHash<T> {
 	public int hashFunctionCarsBigger100(T object);
 	public int hashFunctionCarsLess100(T object);

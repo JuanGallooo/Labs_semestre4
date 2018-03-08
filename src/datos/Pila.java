@@ -1,9 +1,8 @@
 package datos;
 
-import interfaces.InterfazDato;
-import mundo.Bahia;
+import interfaces.InterfazPila;
 
-public class Pila<A> implements InterfazDato<A>{
+public class Pila<A> implements InterfazPila<A>{
 	private A primerDato;
 	private Object[] contenido;
 	private int indice;
@@ -25,10 +24,6 @@ public class Pila<A> implements InterfazDato<A>{
 	@Override
 	public A front() {
 		return primerDato;
-	}
-	@Override
-	public A back() {
-		return null;
 	}
 	@Override
 	public A push(A dato) {
@@ -64,10 +59,6 @@ public class Pila<A> implements InterfazDato<A>{
 		 }
 		}
 		return retorno;
-	}
-	@Override
-	public A replace(A dato, A datoDos) {
-		return null;
 	}
 	public A getPrimerDato() {
 		return primerDato;
