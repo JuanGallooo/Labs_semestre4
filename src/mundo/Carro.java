@@ -19,4 +19,9 @@ public class Carro {
 	public void setSiguiente(Carro siguiente) {
 		this.siguiente = siguiente;
 	}
+	@Override
+	public String toString() {
+		return "Carro [placa=" + placa + ", siguiente=" + siguiente + "]";
+	}
+	
 }

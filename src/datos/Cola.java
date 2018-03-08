@@ -17,7 +17,8 @@ public class Cola implements InterfazCola<Carro> {
 	
 	@Override
 	public boolean isEmpty() {
-		if(arreglo.length == 0){
+		if(arreglo[0]== null){
+			back=0;
 			return true;
 		}
 		return false;
@@ -50,7 +51,6 @@ public class Cola implements InterfazCola<Carro> {
 			   arreglo[i+1] = null;
 			}
 		}
-		
 	}
 
 	@Override

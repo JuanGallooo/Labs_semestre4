@@ -4,6 +4,7 @@ public class Principal {
 	private String mensaje;
 	public Principal() {
 		actual= null;
+		mensaje= "";
 	}
 	public void datosLector(String texto) throws Exception {
 		String[] lineas= texto.split("\n");
@@ -17,8 +18,8 @@ public class Principal {
 		 if(i+1 < numCasos) {
 		 datos= lineas[indice].split(" ");
 		 indice++;
-		 mensaje +="Salida "+ actual.sacarCarros()+ "\n";
 		 }
+		 mensaje +="Salida "+ actual.sacarCarros();
 	    }
 	}
 	public Parqueadero getActual() {
