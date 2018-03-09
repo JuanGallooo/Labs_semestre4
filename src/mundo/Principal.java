@@ -14,6 +14,7 @@ public class Principal {
 	    for (int i = 0; i < numCasos; i++) {
 		 actual= new Parqueadero(indice);
 		 actual.crearBahias(datos, lineas);
+		 actual.requerimiento(datos, lineas);
 		 indice= actual.getIndiceLinea();
 		 if(i+1 < numCasos) {
 		 datos= lineas[indice].split(" ");
