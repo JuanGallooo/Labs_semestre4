@@ -5,8 +5,6 @@ import mundo.Carro;
 
 public class HashTable implements interfazHash<Carro>{
 
-	// Este arreglo debe ser de carros?
-	// -------Cuando lo hice pense que era el arreglo de keys pero no se
 	private Carro[] tableCarros;
 	private int size;
 	

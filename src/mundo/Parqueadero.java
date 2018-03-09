@@ -57,6 +57,12 @@ public class Parqueadero {
 		}
 		return retorno;
 	}
+	
+	public Carro buscarCarro(String placa){
+		Carro buscado = new Carro(placa,0);
+		buscado = directorio.Get(buscado);
+		return buscado;
+	}
 	public void sacarCarro(String placaSacar, int numBahia) throws Exception {
 		bahias[numBahia].sacarCarro(placaSacar);
 	}

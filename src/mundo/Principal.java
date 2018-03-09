@@ -13,8 +13,7 @@ public class Principal {
 	    int indice=2;
 	    for (int i = 0; i < numCasos; i++) {
 		 actual= new Parqueadero(indice);
-		 actual.crearBahias(datos, lineas);
-		 
+		 actual.crearBahias(datos, lineas);	 
 		 actual.requerimiento(datos, lineas);
 		 indice= actual.getIndiceLinea();
 		 if(i+1 < numCasos) {
@@ -35,5 +34,8 @@ public class Principal {
 	}
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
+	}
+	public Carro buscarCarro(String placa){
+		return actual.buscarCarro(placa);
 	}
 }
