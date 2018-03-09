@@ -7,14 +7,15 @@ public class HashTable implements interfazHash<Carro>{
 
 	// Este arreglo debe ser de carros?
 	// -------Cuando lo hice pense que era el arreglo de keys pero no se
-	public String[] tableCarros;
+	private Carro[] tableCarros;
+	private int size;
 	
 	public HashTable(int tamanhoUniverso){
 		 if(tamanhoUniverso > 100){
-			 tableCarros = new String [375];
+			 tableCarros = new Carro [375];
 		 }
 		 else{
-			 tableCarros= new String[100];
+			 tableCarros= new Carro[100];
 		 }
 	}
 	
@@ -37,33 +38,57 @@ public class HashTable implements interfazHash<Carro>{
 	// Debo recibir la placa no? en vez del carro?.
 	// ----------recibe la key del carro en String 
 	@Override
-	public Carro Get(Carro placa) {
+	public Carro Get(Carro buscado) {
 		int key = 0;
-		if(this.size() > 100){
-			key = hashFunctionCarsBigger100(placa);
+		if(tableCarros.length> 100){
+			key = hashFunctionCarsBigger100(buscado);
 		}
 		else{
-			key = hashFunctionCarsLess100(placa);
+			key = hashFunctionCarsLess100(buscado);
 		}
-		// Retorno el string del carro o retorno el carro?
-		//----------------- Retornas el carro apartir del String
-		return null;
+        Carro retornar  = tableCarros[key];
+
+		
+		return retornar;
+	}
+	
+	public void AddToTable(Carro agregar){
+		int key  = 0;
+	 if(tableCarros.length>100){
+		 key = hashFunctionCarsBigger100(agregar);
+	 }
+	 else{
+		 key = hashFunctionCarsLess100(agregar);
+	 }
+	 
+	 tableCarros[key] = agregar;
+	 size++;
+		
+		
 	}
 
 	@Override
-	public Carro remove(String key) {
-		return null;
+	public Carro remove(Carro eliminar) {
+		int key = 0;
+		if(tableCarros.length > 100){
+			key = hashFunctionCarsBigger100(eliminar);
+		}
+		else{
+			key = hashFunctionCarsLess100(eliminar);
+		}
+		
+		Carro eliminado = tableCarros[key];
+		tableCarros[key] = null;
+				
+		
+		return eliminado;
 	}
 
 	@Override
 	public int size() {
-		return tableCarros.length;
+		return size;
 	}
 
-
-	// No recibo más bien una placa para hacer una referencia del carro?
-	// NO SE
-	//---------------------------------------------------------------------------------------------------------------------
 	@Override
 	public int hashFunctionCarsBigger100(Carro object) {	
 	    char[] placa = object.getPlaca().toCharArray();

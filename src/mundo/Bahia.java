@@ -21,18 +21,7 @@ public class Bahia {
 		movimientos=0;
 		this.numBahia=numBahia;
 	}
-	public int apilarCarros(String[] datos, int numCarros){
-		int numAgregado=0;
-		for (int i = 0; i < capacidad && numCarros>0; i++) {
-			String placa=datos[indiceLinea];
-			Carro agregar= new Carro(placa,numBahia );
-			pilaCarros.push(agregar);
-			indiceLinea++;
-			numCarros--;
-			numAgregado++;
-		}
-		return numAgregado;
-	}
+
 	public boolean buscarCarro(String placa) {
 		boolean reporte=false;
 		//Pila<Carro> prueba= pilaCarros;

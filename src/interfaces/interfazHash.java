@@ -7,6 +7,6 @@ public interface interfazHash<T> {
 	public String[] values();
 	public boolean containsKey(String key);
 	public T Get(T key);
-	public T remove(String key);
+	public T remove(T object) ;
 	public int size();
 }

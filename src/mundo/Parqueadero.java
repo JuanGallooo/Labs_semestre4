@@ -1,21 +1,36 @@
 package mundo;
 
+import datos.HashTable;
+
 public class Parqueadero {
 	private Bahia[] bahias;
+	private HashTable directorio;
 	private int indiceLinea;
 	
 	public Parqueadero(int indice) {
 		indiceLinea= indice;
+		
 	}
 	public void crearBahias(String[] datos, String[] info) throws Exception {
 		int numBahias= Integer.parseInt(datos[0]);
 		int capacidad= Integer.parseInt(datos[1]);
 		int numCarros= Integer.parseInt(datos[2]);
 		bahias= new Bahia[numBahias];
+		directorio = new HashTable(numCarros);
 		for (int j = 0; j < numBahias; j++) {
 			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea,j);
 			if( numCarros>0) {
-			numCarros-=nuevaBahia.apilarCarros(info, numCarros);
+				int numAgregado=0;
+				for (int i = 0; i < capacidad && numCarros>0; i++) {
+					String placa=datos[indiceLinea];
+					Carro agregar= new Carro(placa,i );
+					directorio.AddToTable(agregar);
+					nuevaBahia.getPilaCarros().push(agregar);
+					indiceLinea++;
+					numCarros--;
+					numAgregado++;
+				}
+				numCarros-=numAgregado;
 			}
 			indiceLinea= nuevaBahia.getIndiceLinea();
 			bahias[j]= nuevaBahia;
