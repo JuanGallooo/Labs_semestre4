@@ -41,39 +41,22 @@ public class TestParqueadero {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			fail();
 		}
 		
 	}
-//	@Test
-//	public void requerimiento(String[] info) throws Exception {
-//		String placaEliminar=info[indiceLinea];
-//		buscarCarroBahia(placaEliminar);
-//	}
-//	@Test
-//	public void buscarCarroBahia(String placaCarro) throws Exception {
-//		int retorno=-1;
-//		for (int i = 0; i < bahias.length; i++) {
-//			if(bahias[i].getPilaCarros().isEmpty()!= true) {
-//				if(bahias[i].buscarCarro(placaCarro)== true) {
-//				sacarCarro(placaCarro, i);
-//				retorno=i;
-//			    }
-//			}
-//		}
-//		return retorno;
-//	}
-//	@Test
-//	public void sacarCarro(String placaSacar, int numBahia) throws Exception {
-//		bahias[numBahia].sacarCarro(placaSacar);
-//	}
-//	@Test
-//	public void sacarCarros() {
-//		String reporte= "";
-//		for (int i = 0; i < bahias.length; i++) {
-//			reporte+= bahias[i].getMovimientos() + " ";
-//		}
-//		return reporte;
-//	}
+	@Test
+	public void requerimientoTest() {
+		escenario1();
+		try {
+			principal.crearBahias(datos, info);
+			principal.requerimiento(datos, info);
+			for (int i = 0; i < principal.getBahias().length; i++) {
+				Bahia prueba= principal.getBahias()[i];
+			    assertTrue(prueba.getPilaCarros().isEmpty());	
+			}
+		} catch (Exception e) {
+		    fail();
+		}
+	}
 }

@@ -20,17 +20,14 @@ public class Parqueadero {
 		for (int j = 0; j < numBahias; j++) {
 			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea,j);
 			if( numCarros>0) {
-				int numAgregado=0;
 				for (int i = 0; i < capacidad && numCarros>0; i++) {
-					String placa=datos[indiceLinea];
-					Carro agregar= new Carro(placa,i );
+					String placa=info[nuevaBahia.getIndiceLinea()];
+					Carro agregar= new Carro(placa,j);
 					directorio.AddToTable(agregar);
 					nuevaBahia.getPilaCarros().push(agregar);
-					indiceLinea++;
+					nuevaBahia.setIndiceLinea(nuevaBahia.getIndiceLinea()+1);
 					numCarros--;
-					numAgregado++;
 				}
-				numCarros-=numAgregado;
 			}
 			indiceLinea= nuevaBahia.getIndiceLinea();
 			bahias[j]= nuevaBahia;
