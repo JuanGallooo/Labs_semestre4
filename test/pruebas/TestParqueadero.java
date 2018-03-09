@@ -15,7 +15,7 @@ public class TestParqueadero {
 	private String[] info;
 	
 	public void escenario1() {
-		principal= new Parqueadero(2);
+		principal= new Parqueadero(0);
 		datos= new String[3];
 		String[] auxDatos={"4","3","8"};
 		datos=auxDatos;
