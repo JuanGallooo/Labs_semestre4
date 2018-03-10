@@ -9,7 +9,6 @@ public class Parqueadero {
 	
 	public Parqueadero(int indice) {
 		indiceLinea= indice;
-		
 	}
 	public void crearBahias(String[] datos, String[] info) throws Exception {
 		int numBahias= Integer.parseInt(datos[0]);
@@ -18,7 +17,7 @@ public class Parqueadero {
 		bahias= new Bahia[numBahias];
 		directorio = new HashTable(numCarros);
 		for (int j = 0; j < numBahias; j++) {
-			Bahia nuevaBahia= new Bahia(capacidad,info,indiceLinea,j);
+			Bahia nuevaBahia= new Bahia(capacidad,indiceLinea,j);
 			if( numCarros>0) {
 				for (int i = 0; i < capacidad && numCarros>0; i++) {
 					String placa=info[nuevaBahia.getIndiceLinea()];
@@ -37,7 +36,8 @@ public class Parqueadero {
 		int numCarros= Integer.parseInt(datos[2]);
 		for (int i = 0; i < numCarros; i++) {
 			String placaEliminar=info[indiceLinea];
-			buscarCarroBahia(placaEliminar);
+			int bahiaEncontrada=buscarCarroBahia(placaEliminar);
+			sacarCarro(placaEliminar, bahiaEncontrada);
 			indiceLinea++;
 		}
 	}
@@ -47,7 +47,6 @@ public class Parqueadero {
 		for (int i = 0; i < bahias.length; i++) {
 			if(bahias[i].getPilaCarros().isEmpty()!= true) {
 				if(bahias[i].buscarCarro(placaCarro)== true) {
-				sacarCarro(placaCarro, i);
 				retorno=i;
 			    }
 			}
@@ -63,7 +62,7 @@ public class Parqueadero {
 	public void sacarCarro(String placaSacar, int numBahia) throws Exception {
 		bahias[numBahia].sacarCarro(placaSacar);
 	}
-	public String sacarCarros() {
+	public String darReporteCarrosSacados() {
 		String reporte= "";
 		for (int i = 0; i < bahias.length; i++) {
 			reporte+= bahias[i].getMovimientos() + " ";

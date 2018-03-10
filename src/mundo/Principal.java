@@ -20,7 +20,7 @@ public class Principal {
 		 datos= lineas[indice].split(" ");
 		 indice++;
 		 }
-		 mensaje +="Salida "+ actual.sacarCarros();
+		 mensaje +="Salida "+ actual.darReporteCarrosSacados();
 	    }
 	}
 	public Parqueadero getActual() {

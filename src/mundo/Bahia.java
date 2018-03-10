@@ -12,7 +12,7 @@ public class Bahia {
 	private int movimientos;
 	private int numBahia;
 
-	public Bahia(int capacidad, String[] datos, int indice, int numBahia) {
+	public Bahia(int capacidad, int indice, int numBahia) {
 		this.capacidad=capacidad;
 		indiceLinea= indice;
 		pilaCarros= new Pila<Carro>(null, capacidad);
@@ -24,7 +24,6 @@ public class Bahia {
 
 	public boolean buscarCarro(String placa) {
 		boolean reporte=false;
-		//Pila<Carro> prueba= pilaCarros;
 		for (int i = 0; i < pilaCarros.getTamanoPila() && reporte!= true; i++) {
 			if( pilaCarros.isEmpty() != true) {
 				Carro dado= pilaCarros.pop();
@@ -37,33 +36,6 @@ public class Bahia {
 			if( dado!=null)pilaCarros.push(dado);
 		}
 		return reporte;
-	}
-	public int getIndiceLinea() {
-		return indiceLinea;
-	}
-	public void setIndiceLinea(int indiceLinea) {
-		this.indiceLinea = indiceLinea;
-	}
-	public int getCapacidad() {
-		return capacidad;
-	}
-	public void setCapacidad(int capacidad) {
-		this.capacidad = capacidad;
-	}
-	public void crearBahia() {
-		
-	}
-	public Pila<Carro> getPilaCarros() {
-		return pilaCarros;
-	}
-	public void setPilaCarros(Pila<Carro> pilaCarros) {
-		this.pilaCarros = pilaCarros;
-	}
-	public Cola<Carro> getColaCarros() {
-		return colaCarros;
-	}
-	public void setColaCarros(Cola<Carro> colaCarros) {
-		this.colaCarros = colaCarros;
 	}
 	public void sacarCarro(String placaCarro) throws Exception {
 		if(pilaCarros.isEmpty()!= true) {
@@ -91,6 +63,32 @@ public class Bahia {
 			}
 			movimientos+=contador;
 		}
+	}
+	
+	
+	public int getIndiceLinea() {
+		return indiceLinea;
+	}
+	public void setIndiceLinea(int indiceLinea) {
+		this.indiceLinea = indiceLinea;
+	}
+	public int getCapacidad() {
+		return capacidad;
+	}
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+	public Pila<Carro> getPilaCarros() {
+		return pilaCarros;
+	}
+	public void setPilaCarros(Pila<Carro> pilaCarros) {
+		this.pilaCarros = pilaCarros;
+	}
+	public Cola<Carro> getColaCarros() {
+		return colaCarros;
+	}
+	public void setColaCarros(Cola<Carro> colaCarros) {
+		this.colaCarros = colaCarros;
 	}
 	public int getMovimientos() {
 		return movimientos;
