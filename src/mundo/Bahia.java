@@ -22,7 +22,7 @@ public class Bahia {
 		this.numBahia=numBahia;
 	}
 
-	public boolean buscarCarro(String placa) {
+	public boolean buscarCarro(String placa) throws Exception {
 		boolean reporte=false;
 		for (int i = 0; i < pilaCarros.getTamanoPila() && reporte!= true; i++) {
 			if( pilaCarros.isEmpty() != true) {

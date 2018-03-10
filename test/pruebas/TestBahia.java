@@ -14,26 +14,33 @@ public class TestBahia {
 	public void escenario1() {
 		principal= new Bahia(3, 0, 2);
 		Pila<Carro> aux= new Pila<>(null, 3);
-		aux.push(new Carro("AWMH", 0));
-		aux.push(new Carro("QNAY", 0));
-		aux.push(new Carro("7QP2",0));
+		try {
+			aux.push(new Carro("AWMH", 0));
+			aux.push(new Carro("QNAY", 0));
+			aux.push(new Carro("7QP2",0));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		principal.setPilaCarros(aux);
 	}
 	@Test
 	public void buscarCarroTest() {
 		escenario1();
 		String buscar="AWMH";
-		boolean encontro=principal.buscarCarro(buscar);
-		assertTrue(encontro);
-		buscar="QNAY";
-		encontro=principal.buscarCarro(buscar);
-		assertTrue(encontro);
-		buscar="7QP2";
-		encontro=principal.buscarCarro(buscar);
-		assertTrue(encontro);
-		buscar="ASD4";
-		encontro=principal.buscarCarro(buscar);
-		assertFalse(encontro);
+		try {
+			boolean encontro=principal.buscarCarro(buscar);
+			assertTrue(encontro);
+			buscar="QNAY";
+			encontro=principal.buscarCarro(buscar);
+			assertTrue(encontro);
+			buscar="7QP2";
+			encontro=principal.buscarCarro(buscar);
+			assertTrue(encontro);
+			buscar="ASD4";
+			encontro=principal.buscarCarro(buscar);
+			assertFalse(encontro);
+		} catch (Exception e) {
+		}
 	}
 	@Test
 	public void sacarCarroTest() {

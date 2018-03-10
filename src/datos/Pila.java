@@ -21,12 +21,13 @@ public class Pila<A> implements InterfazPila<A>{
 		if(primerDato== null) retorno= true;
 		return retorno;
 	}
+	@SuppressWarnings("unchecked")
 	@Override
-	public A front() {
-		return primerDato;
+	public A peek() {
+		return (A)contenido[indice-1];
 	}
 	@Override
-	public A push(A dato) {
+	public A push(A dato) throws Exception {
 		if(indice<=contenido.length) {
 			if( primerDato== null && dato!=null) {
 				primerDato= dato;
@@ -39,14 +40,13 @@ public class Pila<A> implements InterfazPila<A>{
 				indice++;
 			}
 		}
-		else return null;
+		else throw new Exception("Se ha llenado la pila");
 		return dato;
 	}
 	@SuppressWarnings("unchecked")
 	@Override
 	public A pop() {
 		 A retorno=null;
-		
 		 if( primerDato!= null) {
 		 if( indice== 1) {
 			retorno= primerDato;
