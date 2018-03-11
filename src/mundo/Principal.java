@@ -1,9 +1,9 @@
 package mundo;
 public class Principal {
-	private Parqueadero actual;
+	private Parqueadero[] casos;
 	private String mensaje;
 	public Principal() {
-		actual= null;
+		casos= null;
 		mensaje= "";
 	}
 	public void datosLector(String texto) throws Exception {
@@ -12,22 +12,22 @@ public class Principal {
 	    String[] datos= lineas[1].split(" ");
 	    int indice=2;
 	    for (int i = 0; i < numCasos; i++) {
-		 actual= new Parqueadero(indice);
-		 actual.crearBahias(datos, lineas);	 
-		 actual.requerimiento(datos, lineas);
-		 indice= actual.getIndiceLinea();
+		 casos[i]= new Parqueadero(indice);
+		 casos[i].crearBahias(datos, lineas);	 
+		 casos[i].requerimiento(datos, lineas);
+		 indice= casos[i].getIndiceLinea();
 		 if(i+1 < numCasos) {
 		 datos= lineas[indice].split(" ");
 		 indice++;
 		 }
-		 mensaje +="Salida "+ actual.darReporteCarrosSacados();
+		 mensaje +="Salida "+ casos[i].darReporteCarrosSacados();
 	    }
 	}
-	public Parqueadero getActual() {
-		return actual;
+	public Parqueadero[] getCasos() {
+		return casos;
 	}
-	public void setActual(Parqueadero actual) {
-		this.actual = actual;
+	public void setCasos(Parqueadero[] casos) {
+		this.casos = casos;
 	}
 	public String getMensaje() {
 		return mensaje;
@@ -35,7 +35,7 @@ public class Principal {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	public Carro buscarCarro(String placa){
-		return actual.buscarCarro(placa);
-	}
+//	public Carro buscarCarro(String placa){
+//		return actual.buscarCarro(placa);
+//	}
 }
