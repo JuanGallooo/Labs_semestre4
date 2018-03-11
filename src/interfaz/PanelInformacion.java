@@ -31,5 +31,8 @@ public class PanelInformacion extends JPanel{
 	public String darTexto(){
 		return area.getText();
 	}
+	public void areaVacia(){
+		refrescarArea("");
+	}
 
 }

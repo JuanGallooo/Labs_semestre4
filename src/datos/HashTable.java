@@ -33,8 +33,8 @@ public class HashTable implements interfazHash<Carro>{
 		return false;
 	}
 
-	// Debo recibir la placa no? en vez del carro?.
-	// ----------recibe la key del carro en String 
+	
+	
 	@Override
 	public Carro Get(Carro buscado) {
 		int key = 0;
@@ -44,7 +44,15 @@ public class HashTable implements interfazHash<Carro>{
 		else{
 			key = hashFunctionCarsLess100(buscado);
 		}
-        Carro retornar  = tableCarros[key];
+		
+		Carro retornar = null;
+		if(tableCarros[key] != null){
+			
+			 retornar = tableCarros[key].buscarCarro(buscado.getPlaca());
+		}
+		else{
+			retornar =  tableCarros[key];
+		}
 
 		
 		return retornar;
@@ -58,8 +66,12 @@ public class HashTable implements interfazHash<Carro>{
 	 else{
 		 key = hashFunctionCarsLess100(agregar);
 	 }
-	 
-	 tableCarros[key] = agregar;
+	 if(tableCarros[key] != null){
+		 tableCarros[key].setSiguiente(agregar);
+	 }
+	 else{
+		 tableCarros[key] = agregar;	 
+	 }
 	 size++;
 		
 		

@@ -21,7 +21,12 @@ public class Principal {
 		 datos= lineas[indice].split(" ");
 		 indice++;
 		 }
-		 mensaje +="Salida "+ casos[i].darReporteCarrosSacados();
+		 if(i+1 == numCasos){
+			 mensaje +="Salida del Caso " + (i+1) + ": " + casos[i].darReporteCarrosSacados();
+		 }
+		 else{
+			 mensaje +="Salida del Caso " + (i+1) + ": " + casos[i].darReporteCarrosSacados() + "\n";	 
+		 }
 	    }
 	}
 	public Parqueadero[] getCasos() {
@@ -36,7 +41,25 @@ public class Principal {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-//	public Carro buscarCarro(String placa){
-//		return actual.buscarCarro(placa);
-//	}
+	public Carro buscarCarro(String placa, String indice) throws Exception{
+		int caso = 0;
+		try{
+			caso  = Integer.parseInt(indice);	
+		}
+		catch(Exception e){
+			throw new Exception("Existe un error en la entrada caso, asegurese que caso sea un numero y no algo diferente");
+		}
+		
+		if(caso > casos.length || caso < 1){
+			throw new Exception ("El caso que desea buscar no se encuentra en la cantidad de casos ingresados");
+		}
+		else{
+			caso--;
+			Parqueadero actual = casos[caso];
+			Carro buscado = actual.buscarCarro(placa);
+			return buscado;
+		}
+		
+	
+	}
 }

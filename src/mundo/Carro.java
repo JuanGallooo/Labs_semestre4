@@ -25,11 +25,25 @@ public class Carro {
 		return siguiente;
 	}
 	public void setSiguiente(Carro siguiente) {
-		this.siguiente = siguiente;
+		if(this.siguiente != null){
+			this.siguiente.setSiguiente(siguiente);
+		}else{
+			this.siguiente = siguiente;		
+		}
+	}
+	
+	public Carro buscarCarro(String placa){
+		if(this.placa.equals(placa)){
+			return this;
+		}
+		else if (this.siguiente!= null){
+			return siguiente.buscarCarro(placa);
+		}
+		return null;
 	}
 	@Override
 	public String toString() {
-		return "Carro [placa=" + placa + ", siguiente=" + siguiente + "]";
+		return "El Carro es : " + "\n"+ " placa = " + placa + "\n"+ "En la bahia: " + numBahia;
 	}
 	
 }

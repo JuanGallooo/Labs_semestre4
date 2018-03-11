@@ -29,5 +29,9 @@ public class PanelResultado extends JPanel{
 		area.setText(n);
 		repaint();
 	}
+	
+	public void areaVacia(){
+		refrescarPanel("");
+	}
 
 }
