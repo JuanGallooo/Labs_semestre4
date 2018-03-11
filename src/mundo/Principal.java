@@ -11,6 +11,7 @@ public class Principal {
 	    int numCasos= Integer.parseInt(lineas[0]);
 	    String[] datos= lineas[1].split(" ");
 	    int indice=2;
+	    casos= new Parqueadero[numCasos];
 	    for (int i = 0; i < numCasos; i++) {
 		 casos[i]= new Parqueadero(indice);
 		 casos[i].crearBahias(datos, lineas);	 
