@@ -39,8 +39,6 @@ public class InterfazPrincipal extends JFrame {
 		try {
 			mundo.datosLector(n);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			JOptionPane.showMessageDialog(this, "Existe un error al cargar los datos", "Error de Carga", JOptionPane.ERROR_MESSAGE, null);
 		}
 		panelResultado.refrescarPanel(mundo.getMensaje());
@@ -62,7 +60,6 @@ public class InterfazPrincipal extends JFrame {
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error al buscar el carro", JOptionPane.ERROR_MESSAGE,null);
-		e.printStackTrace();
 		}			
 	 }
 		

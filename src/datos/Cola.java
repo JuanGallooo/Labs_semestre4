@@ -50,6 +50,7 @@ public class Cola<T> implements InterfazCola<T> {
 			   arreglo[i] = temp; 
 			   arreglo[i+1] = null;
 			}
+			back--;
 		}
 	}
 

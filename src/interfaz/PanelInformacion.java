@@ -1,6 +1,7 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.ScrollPane;
 
 import javax.swing.*;
@@ -12,6 +13,7 @@ public class PanelInformacion extends JPanel{
 	
 	
 	public PanelInformacion(InterfazPrincipal p){
+		setPreferredSize(new Dimension(200,400));
 		setLayout(new BorderLayout());
 		setBorder(new TitledBorder("Informacion"));
 		pri = p;

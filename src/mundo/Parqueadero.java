@@ -22,7 +22,7 @@ public class Parqueadero {
 				for (int i = 0; i < capacidad && numCarros>0; i++) {
 					String placa=info[nuevaBahia.getIndiceLinea()];
 					Carro agregar= new Carro(placa,j);
-					directorio.AddToTable(agregar);
+					directorio.addToTable(agregar);
 					nuevaBahia.getPilaCarros().push(agregar);
 					nuevaBahia.setIndiceLinea(nuevaBahia.getIndiceLinea()+1);
 					numCarros--;
@@ -56,7 +56,7 @@ public class Parqueadero {
 	
 	public Carro buscarCarro(String placa){
 		Carro buscado = new Carro(placa,0);
-		buscado = directorio.Get(buscado);
+		buscado = directorio.get(buscado);
 		return buscado;
 	}
 	public void sacarCarro(String placaSacar, int numBahia) throws Exception {

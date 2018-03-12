@@ -47,11 +47,11 @@ public class PanelBotones extends JPanel implements ActionListener{
 			p.limpiarAreas();
 		}
 		else if(accion.equals(BUSCAR)){
-		String c = JOptionPane.showInputDialog(this,"Ingrese el caso donde se buscará el carro");
-		if(c.equals("")){
+		String c = JOptionPane.showInputDialog(this,"Ingrese el caso donde se buscará el carro " + "\n" + "(Número de 1 hasta el ultimo caso)");
+		if(c != null && c.equals("")){
 			JOptionPane.showMessageDialog(this, "Entrada no valida", "Error de entrada", JOptionPane.ERROR_MESSAGE, null);
 		}	
-		else if(!c.equals("") && !c.equals(null)){
+		else if( c != null && !c.equals("")){
 			String n =	JOptionPane.showInputDialog(this, "Ingrese la placa del carro a buscar");
 			if(!n.equals("") && !n.equals(null)){
 				p.buscarCarros(n,c);

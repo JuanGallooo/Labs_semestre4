@@ -10,33 +10,15 @@ public class HashTable implements interfazHash<Carro>{
 	
 	public HashTable(int tamanhoUniverso){
 		 if(tamanhoUniverso > 100){
-			 tableCarros = new Carro [375];
+			 tableCarros = new Carro [376];
 		 }
 		 else{
 			 tableCarros= new Carro[100];
 		 }
 	}
 	
-
 	@Override
-	public Carro replace(Carro object) {
-		return null;
-	}
-
-	@Override
-	public String[] values() {
-		return null;
-	}
-
-	@Override
-	public boolean containsKey(String key) {
-		return false;
-	}
-
-	
-	
-	@Override
-	public Carro Get(Carro buscado) {
+	public Carro get(Carro buscado) {
 		int key = 0;
 		if(tableCarros.length> 100){
 			key = hashFunctionCarsBigger100(buscado);
@@ -58,7 +40,7 @@ public class HashTable implements interfazHash<Carro>{
 		return retornar;
 	}
 	
-	public void AddToTable(Carro agregar){
+	public void addToTable(Carro agregar){
 		int key  = 0;
 	 if(tableCarros.length>100){
 		 key = hashFunctionCarsBigger100(agregar);
@@ -75,23 +57,6 @@ public class HashTable implements interfazHash<Carro>{
 	 size++;
 		
 		
-	}
-
-	@Override
-	public Carro remove(Carro eliminar) {
-		int key = 0;
-		if(tableCarros.length > 100){
-			key = hashFunctionCarsBigger100(eliminar);
-		}
-		else{
-			key = hashFunctionCarsLess100(eliminar);
-		}
-		
-		Carro eliminado = tableCarros[key];
-		tableCarros[key] = null;
-				
-		
-		return eliminado;
 	}
 
 	@Override
@@ -133,6 +98,10 @@ public class HashTable implements interfazHash<Carro>{
 	    }
 			
 			return hash;
+	}
+	
+	public Carro[] getTableCarros(){
+		return tableCarros;
 	}
 
 
