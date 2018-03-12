@@ -19,7 +19,7 @@ public class TestBahia {
 			aux.push(new Carro("QNAY", 0));
 			aux.push(new Carro("7QP2",0));
 		} catch (Exception e) {
-			// TODO: handle exception
+			fail();
 		}
 		principal.setPilaCarros(aux);
 	}

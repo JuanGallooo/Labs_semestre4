@@ -72,13 +72,13 @@ public class TestParqueadero {
 		try {
 			principal.crearBahias(datos, info);
 			String placaCarroPrueba= "7QP2";
-			int bahiaEncontrada=principal.buscarCarroBahia(placaCarroPrueba);
+			int bahiaEncontrada=principal.buscarCarro(placaCarroPrueba).getNumBahia();
 			assertTrue(bahiaEncontrada==0);
 			placaCarroPrueba="5WJ5";
-			bahiaEncontrada=principal.buscarCarroBahia(placaCarroPrueba);
+			bahiaEncontrada=principal.buscarCarro(placaCarroPrueba).getNumBahia();
 			assertTrue(bahiaEncontrada==1);
 			placaCarroPrueba="K75A";
-			bahiaEncontrada=principal.buscarCarroBahia(placaCarroPrueba);
+			bahiaEncontrada=principal.buscarCarro(placaCarroPrueba).getNumBahia();
 			assertTrue(bahiaEncontrada==2);
 		} catch (Exception e) {
 			fail();
@@ -90,7 +90,7 @@ public class TestParqueadero {
 		try {
 			principal.crearBahias(datos, info);
 			String carroSacar="K75A";
-			int bahia= principal.buscarCarroBahia(carroSacar);
+			int bahia= principal.buscarCarro(carroSacar).getNumBahia();
 			principal.sacarCarro(carroSacar, bahia);
 			assertTrue(principal.buscarCarroBahia(carroSacar)==-1);
 		} catch (Exception e) {
@@ -104,9 +104,7 @@ public class TestParqueadero {
 			principal.crearBahias(datos, info);
 			principal.requerimiento(datos, info);
 			String solucionPrueba08_1= "5 5 3 0 ";
-			System.out.println(solucionPrueba08_1);
 			String solucionMetodo= principal.darReporteCarrosSacados();
-			System.out.println(solucionMetodo);
 			assertTrue(solucionPrueba08_1.equals(solucionMetodo));
 		} catch (Exception e) {
 			fail();

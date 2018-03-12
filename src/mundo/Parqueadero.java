@@ -36,8 +36,9 @@ public class Parqueadero {
 		int numCarros= Integer.parseInt(datos[2]);
 		for (int i = 0; i < numCarros; i++) {
 			String placaEliminar=info[indiceLinea];
-			int bahiaEncontrada=buscarCarroBahia(placaEliminar);
-			sacarCarro(placaEliminar, bahiaEncontrada);
+//			int bahiaEncontrada=buscarCarroBahia(placaEliminar);
+//			sacarCarro(placaEliminar, bahiaEncontrada);
+			sacarCarro(placaEliminar, buscarCarro(placaEliminar).getNumBahia());
 			indiceLinea++;
 		}
 	}
