@@ -1,13 +1,13 @@
 package interfaz;
 
 import java.awt.BorderLayout;
-import java.awt.*;
 
 import javax.swing.*;
 
 import mundo.Carro;
 import mundo.Principal;
 
+@SuppressWarnings("serial")
 public class InterfazPrincipal extends JFrame {
 
 	private Principal mundo;

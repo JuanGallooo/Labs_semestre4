@@ -7,6 +7,7 @@ import java.awt.ScrollPane;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
+@SuppressWarnings("serial")
 public class PanelResultado extends JPanel{
 	
 	private JTextArea area;

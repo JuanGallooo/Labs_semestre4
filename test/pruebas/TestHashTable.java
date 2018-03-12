@@ -196,8 +196,8 @@ public class TestHashTable {
 	public void hashFunctionBigger100Test(){
 		escenario2();
 		Carro uno = new Carro("AAAA", 0);
-		Carro dos = new Carro("EFGH" , 1);
-		Carro tres = new Carro ("IJKL", 2);
+//		Carro dos = new Carro("EFGH" , 1);
+//		Carro tres = new Carro ("IJKL", 2);
 		
 		//Hay una colision entre ambos.
 		Carro cuatro = new Carro ("1999",3);
@@ -228,8 +228,8 @@ public class TestHashTable {
 	public void hashFunctionLess100Test(){
 		escenario1();
 		Carro uno = new Carro("ABCD", 0);
-		Carro dos = new Carro("EFGH" , 1);
-		Carro tres = new Carro ("IJKL", 2);
+//		Carro dos = new Carro("EFGH" , 1);
+//		Carro tres = new Carro ("IJKL", 2);
 		
 		//Hay una colision entre ambos.
 		Carro cuatro = new Carro ("1999",3);

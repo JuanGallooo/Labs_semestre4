@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class PanelBanner extends JPanel{
 
 	private JLabel banner;
